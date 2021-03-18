@@ -21,3 +21,5 @@ $ npm run build
 Writing _site/index.html from ./src/index.md.
 Wrote 1 file in 0.11 seconds (v0.11.1)
 ```
+
+See [issue #1700 in Eleventy](https://github.com/11ty/eleventy/issues/1700).
