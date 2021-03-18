@@ -1,22 +1,10 @@
 # Reduced Test Cases for Eleventy issues
 
-## Template/layout evaluated even if `permalink` set to `false` in `eleventyComputed.js`
+## Template/layout evaluated even if `permalink` set to `false`
 
-`eleventyComputed.js` contains this:
+`eleventyComputed.js` sets the `permalink` to `false` for Markdown files from the `drafts/` folder.
 
-```javascript
-module.exports = {
-  permalink: (data) => false
-};
-```
-
-So no HTML page is generated, as mentioned in the logs:
-
-```bash
-Wrote 0 files in 0.08 seconds (v0.11.1)
-```
-
-However, the layout is evaluated, as we see with the page title in the full logs:
+However, the layout is evaluated, as we see with both page titles in the logs:
 
 ```bash
 $ npm run build
@@ -24,7 +12,8 @@ $ npm run build
 > 11ty-reduced-test-cases@1.0.0 build
 > eleventy
 
--> This is the title of the page that is not generated <-
-Wrote 0 files in 0.08 seconds (v0.11.1)
+-> This is the title of the page that is generated <-
+-> This is the title of the draft that is not generated <-
+Writing _site/index.html from ./src/index.md.
+Wrote 1 file in 0.15 seconds (v0.11.1)
 ```
-
